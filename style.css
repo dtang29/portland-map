@@ -1,52 +1,47 @@
 body {
-  padding: 0;
-  margin: 0;
-}
-
-#map,
-body,
-html {
-  height: 100%;
-}
-
-.leaflet-popup-content {
-  text-align: center;
-}
-
-/* CSS from the Leaflet-Choropleth documentation */
-.legend {
-  padding: 6px 8px;
-  font: 12px Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: #555;
-  background: #fff;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.legend ul {
-  padding: 0;
-  margin: 0;
-  clear: both;
-  list-style-type: none;
-}
-
-.legend li {
-  display: inline-block;
-  width: 30px;
-  height: 22px;
-}
-
-.legend .min {
-  float: left;
-  padding-bottom: 5px;
-}
-
-.legend .max {
-  float: right;
-}
-
-h1 {
-  text-align: center;
-}
+    padding: 0;
+    margin: 0;
+  }
+  
+  #map,
+  body,
+  html {
+    height: 100%;
+  }
+  
+  .leaflet-popup-content {
+    text-align: center;
+  }
+  
+  /* CSS from the Leaflet-Choropleth documentation */
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 10px 0;
+    }
+.column {
+    position: relative;
+    float: left;
+    width: 44%;
+    height: 100%;
+    margin: 0 3%;
+    }
+.header {
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+    padding: 5px 10px;
+    font: 18px/1.4 "Lucida Console", Monaco, monospace;
+    background-color: rgba(0, 0, 0, 0.751998);
+    color: #FFF;
+    }
+.map {
+    height: 100%;
+    }
+.map .leaflet-tile-pane {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+            filter: grayscale(100%);
+    }

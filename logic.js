@@ -14,30 +14,14 @@ L.tileLayer(mapbox).addTo(myMap);
 // Building API query URL
 var url = "https://raw.githubusercontent.com/lyzidiamond/learn-geojson/master/geojson/pdxplaces.geojson";
 
-// Grabbing the data with d3..
-d3.json(url, function(response) {
+d3.json(url, function(data) {
+  console.log(data);
 
-    console.log(response);
-  // Creating a new marker cluster group
-  var markers = L.markerClusterGroup();
-
-  // Loop through our data...
-  for (var i = 0; i < response.features.length; i++) {
-    console.log(response.features);
-    // set the data location property to a variable
-    var location = response[i].coordinates;
-
-    // If the data has a location property...
-    if (location) {
-
-      // Add a new marker to the cluster group and bind a pop-up
-      markers.addLayer(L.marker([location.coordinates[1], location.coordinates[0]])
-        .bindPopup(response[i].Name));
+  // Creating a new choropleth layer
+    L.geoJson.css(data, {
+    //Bind pop up to each feature
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup(feature.properties.Name + " " + "<hr>Reason this is a cool place: " + feature.properties.Reason);
     }
-
-  }
-
-  // Add our marker cluster layer to the map
-  myMap.addLayer(markers);
-
+  }).addTo(myMap);
 });
