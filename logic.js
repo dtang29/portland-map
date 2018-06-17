@@ -19,6 +19,18 @@ d3.json(url, function(data) {
 
   // Creating a new choropleth layer
     L.geoJson.css(data, {
+
+    style: function(feature) {
+      return {
+        "color": "#CC0000",
+				"weight": 2,
+				"fill-opacity": 0.6,
+				"opacity": 1,
+        "dashArray": "3, 5"
+      };
+    },
+
+    
     //Bind pop up to each feature
     onEachFeature: function(feature, layer) {
       layer.bindPopup(feature.properties.Name + " " + "<hr>Reason this is a cool place: " + feature.properties.Reason);
